@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import Navbar from './pages/Shared/Navbar';
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar/>
        <Routes>
         <Route path="/" element={<Home />} />

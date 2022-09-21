@@ -1,9 +1,10 @@
 import React from 'react';
+import SideNav from '../Shared/SideNav';
 
 const Home = () => {
     return (
         <div>
-            <h3 className='text-4xl text-red-400'>this is home pages</h3>
+            <SideNav />
         </div>
     );
 };
