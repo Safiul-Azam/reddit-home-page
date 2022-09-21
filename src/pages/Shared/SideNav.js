@@ -9,6 +9,7 @@ import { FiMonitor } from "react-icons/fi";
 import { RiMoreLine } from "react-icons/ri";
 import { Link, Outlet } from 'react-router-dom';
 import CustomLink from './CustomLink';
+import Banner from "../Home/Banner";
 
 const SideNav = () => {
     const [showGaming, setShowGaming] = useState(false)
@@ -20,7 +21,7 @@ const SideNav = () => {
     const [showMore, setShowMore] = useState(false)
     return (
         <>
-            <div className="bg-[#EDEFF1] grid grid-cols-6 fixed">
+            <div className="bg-white grid grid-cols-6 fixed">
                 <div className="bg-white px-8">
                     <h2 className="text-xs font-semibold text-gray-600 mt-4">FEEDS</h2>
                     <Link className="text-lg text-gray-800 py-4 flex items-center space-x-2">
@@ -128,8 +129,8 @@ const SideNav = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="col-span-5 mb-24 mx-10">
-                    <Outlet />
+                <div className="col-span-5 mb-24">
+                    <Banner/>
                 </div>
             </div>
         </>
