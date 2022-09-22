@@ -12,9 +12,6 @@ const ActiveStepForm = ({ activeStep }) => {
                 return (
                     <>
                         <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your First Name</span>
-                            </label>
                             <input
                                 {...register('displayName', {
                                     required: {
@@ -23,7 +20,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Your First Name"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -243,12 +240,10 @@ const ActiveStepForm = ({ activeStep }) => {
 
 
     return (
-        <div>
 
-            <form className='' onSubmit={handleSubmit(onSubmit)}>
+            <form className='py-6' onSubmit={handleSubmit(onSubmit)}>
                 {getStepContent(activeStep)}
             </form>
-        </div>
     );
 };
 
