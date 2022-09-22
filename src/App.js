@@ -1,7 +1,15 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./component/Home/Home";
+import LineStepper from "./component/LineStepper";
+
 function App() {
   return (
     <div>
-      <h2 className="text-4xl text-green-500">start simple E-commerce site with steps form </h2>
+      <Home />
+      <LineStepper />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
