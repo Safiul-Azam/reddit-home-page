@@ -1,16 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home/Home';
-import Navbar from './pages/Shared/Navbar';
 function App() {
   return (
     <div>
-      <Navbar/>
-       <Routes>
-        <Route path="/" element={<Home />}>
-          
-        </Route>
-      </Routes>
+      <h2 className="text-4xl text-green-500">start simple E-commerce site with steps form </h2>
     </div>
   );
 }
