@@ -30,7 +30,7 @@ const LineStepper = () => {
                 <ActiveStepForm activeStep={activeStep}/>
                 <div className='flex justify-center'>
                     <button disabled={activeStep === 1} onClick={handleBack} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Back</button>
-                    <button disabled={activeStep === steps.length} onClick={handleNext} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Next</button>
+                    <button disabled={activeStep === steps.length + 1} onClick={handleNext} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>{activeStep === steps.length ? 'Confirm Paymant':'Next'}</button>
                 </div>
             </div>
         </div>
