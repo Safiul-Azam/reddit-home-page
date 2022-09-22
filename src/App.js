@@ -1,9 +1,9 @@
-import Stepper from "./component/Stepper";
+import LineStepper from "./component/LineStepper";
 
 function App() {
   return (
     <div>
-      <Stepper/>
+      <LineStepper/>
 
     </div>
   );
