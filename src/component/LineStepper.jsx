@@ -3,7 +3,7 @@ import { MultiStepForm, Step } from 'react-multi-form';
 import ActiveStepForm from './ActiveStepForm';
 
 const LineStepper = () => {
-    const [activeStep, setActiveStep] = useState(0)
+    const [activeStep, setActiveStep] = useState(1)
 
     const steps = [
         "Basic information",
@@ -29,8 +29,8 @@ const LineStepper = () => {
                 </MultiStepForm>
                 <ActiveStepForm activeStep={activeStep}/>
                 <div className='flex justify-center'>
-                    <button onClick={handleBack} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Back</button>
-                    <button onClick={handleNext} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Next</button>
+                    <button disabled={activeStep === 1} onClick={handleBack} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Back</button>
+                    <button disabled={activeStep === steps.length} onClick={handleNext} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Next</button>
                 </div>
             </div>
         </div>
