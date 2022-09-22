@@ -11,7 +11,10 @@ const ActiveStepForm = ({ activeStep }) => {
             case 1:
                 return (
                     <>
-                        <div className="form-control w-full">
+                        <div className=" mb-3 w-full">
+                            <label className="text-sm">
+                                <span className="text-xs">Your Last Name</span>
+                            </label>
                             <input
                                 {...register('displayName', {
                                     required: {
@@ -27,10 +30,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                 {errors.displayName?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Last Name</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('lastName', {
                                     required: {
@@ -39,7 +39,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Your Last Name"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -53,10 +53,7 @@ const ActiveStepForm = ({ activeStep }) => {
             case 2:
                 return (
                     <>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('email', {
                                     required: {
@@ -69,7 +66,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="email" placeholder="Enter Your Email"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -77,10 +74,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full ">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
+                        <div className=" mb-3 w-full ">
                             <input
                                 {...register('password', {
                                     required: {
@@ -93,7 +87,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="password" placeholder="Enter Your Password"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -101,10 +95,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                 {errors.password?.type === 'pattern' && <span className="label-text-alt text-error">{errors.password.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full ">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
+                        <div className=" mb-3 w-full ">
                             <input
                                 {...register('password', {
                                     required: {
@@ -117,7 +108,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="password" placeholder="Enter Your Password"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -130,10 +121,7 @@ const ActiveStepForm = ({ activeStep }) => {
             case 3:
                 return (
                     <>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your Address</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('address', {
                                     required: {
@@ -142,17 +130,14 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Your Address"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
                                 {errors.address?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your country</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('country', {
                                     required: {
@@ -161,7 +146,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Your country"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -174,10 +159,7 @@ const ActiveStepForm = ({ activeStep }) => {
             case 4:
                 return (
                     <>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your cardNumber</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('cardNumber', {
                                     required: {
@@ -186,17 +168,14 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Enter Your Card Number"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
                                 {errors.cardNumber?.type === 'required' && <span className="label-text-alt text-error">{errors.cardNumber.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your cardMonth</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('cardMonth', {
                                     required: {
@@ -205,17 +184,14 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Enter Your Card Month"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
                                 {errors.cardMonth?.type === 'required' && <span className="label-text-alt text-error">{errors.cardMonth.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Your cardYear</span>
-                            </label>
+                        <div className=" mb-3 w-full">
                             <input
                                 {...register('cardYear', {
                                     required: {
@@ -224,7 +200,7 @@ const ActiveStepForm = ({ activeStep }) => {
                                     }
                                 })}
                                 type="text" placeholder="Enter Your Card Your"
-                                className="input border-b-gray-300 outline-0 focus:outline-none focus:border-b-primary text-lg border-x-0 border-t-0 w-full rounded-none"
+                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
@@ -241,9 +217,9 @@ const ActiveStepForm = ({ activeStep }) => {
 
     return (
 
-            <form className='py-6' onSubmit={handleSubmit(onSubmit)}>
-                {getStepContent(activeStep)}
-            </form>
+        <form className='py-6' onSubmit={handleSubmit(onSubmit)}>
+            {getStepContent(activeStep)}
+        </form>
     );
 };
 
