@@ -1,9 +1,10 @@
-import ShowProducts from "./ShowProducts";
+import FilterByButton from "./FilterByButton";
 
 const Home = () => {
     return (
         <div>
-            <ShowProducts/>
+            <FilterByButton/>
+            
         </div>
     );
 };
