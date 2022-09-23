@@ -21,7 +21,6 @@ const FilterByButton = () => {
         setFilterByBtn(products.filter(product => product?.category?.name.toLowerCase() === btn))
         setProductName(products.find(product => product?.category?.name.toLowerCase() === btn))
     }
-    console.log(filterByBtn);
     return (
         <>
             <div className='flex justify-center space-x-10 mb-20'>

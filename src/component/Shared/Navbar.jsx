@@ -8,8 +8,6 @@ const Navbar = () => {
     const [searchProducts, setSearchProducts] = useState(undefined)
 
     const ProductMySearch = products.filter(product => product?.category?.name.toLowerCase() === searchProducts)
-    console.log(searchProducts);
-    console.log(ProductMySearch);
     return (
         <div className='container mx-auto z-10 mb-10 mt-2'>
             <div className="flex justify-between items-center pb-2">
