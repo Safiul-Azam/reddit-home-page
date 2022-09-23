@@ -14,12 +14,12 @@ const FilterByButton = () => {
 
     
     const btnByProductName = [
-        { id: 2, name: 'all', icon: <FaHome /> },
-        { id: 2, name: 'clothes', icon: <GiClothes /> },
-        { id: 3, name: 'shoes', icon: <GiRunningShoe /> },
-        { id: 4, name: 'electronics', icon: <TbDeviceWatchStats /> },
-        { id: 5, name: 'furniture', icon: <GiOfficeChair /> },
-        { id: 1, name: 'others', icon: <MdOutlineMore className=' rotate-180' /> },
+        { id: 6, name: 'all', icon: <FaHome /> },
+        { id: 1, name: 'clothes', icon: <GiClothes /> },
+        { id: 2, name: 'shoes', icon: <GiRunningShoe /> },
+        { id: 3, name: 'electronics', icon: <TbDeviceWatchStats /> },
+        { id: 4, name: 'furniture', icon: <GiOfficeChair /> },
+        { id: 5, name: 'others', icon: <MdOutlineMore className=' rotate-180' /> },
     ]
 
     const handleClick = (btn) => {
@@ -29,11 +29,11 @@ const FilterByButton = () => {
     }
     return (
         <>
-            <div className='flex justify-center space-x-10 mb-20'>
+            <div className='flex justify-center space-x-10 mb-10'>
                 {
-                    btnByProductName.map((btn) => <div className={`border flex justify-center w-28 h-28 hover:bg-teal-500 hover:text-white ${active === btn.name ? 'bg-teal-500 text-white':''}`} key={btn.id}>
+                    btnByProductName.map((btn) => <div className={`border flex justify-center w-28 h-28 hover:bg-teal-500 hover:text-white hover:duration-500 hover:ease-in-out ease-in-out duration-500 ${active === btn.name ? 'bg-teal-500 text-white':''}`} key={btn.id}>
                         <button className='' onClick={() => handleClick(btn.name)}>
-                            <h3 className='text-5xl'>{btn.icon}</h3>
+                            <h3 className='text-6xl'>{btn.icon}</h3>
                             <p className='text-lg capitalize'>{btn.name}</p>
                         </button>
                     </div>)
