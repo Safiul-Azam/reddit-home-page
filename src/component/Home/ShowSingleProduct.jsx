@@ -30,7 +30,7 @@ const ShowSingleProduct = () => {
             </div>
 
             <div className='text-center mt-10'>
-                <Link className='hover:bg-amber-400 bg-amber-200 hover:text-gray-800 px-12 py-2 text-gray-700 font-medium hover:duration-500 hover:ease-in-out ease-in-out duration-500 text-xl' to='/'>Proceed Check Out</Link>
+                <Link className='hover:bg-amber-400 bg-amber-200 hover:text-gray-800 px-12 py-2 text-gray-700 font-medium hover:duration-500 hover:ease-in-out ease-in-out duration-500 text-xl' to='/checkout'>Proceed Check Out</Link>
             </div>
         </div>
     );

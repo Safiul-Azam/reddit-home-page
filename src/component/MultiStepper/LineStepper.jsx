@@ -1,56 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { HiArrowLeft } from 'react-icons/hi';
+import { MultiStepForm, Step } from 'react-multi-form';
+import { Link } from 'react-router-dom';
 
-const ActiveStepForm = ({ activeStep }) => {
+const LineStepper = () => {
+    const [activeStep, setActiveStep] = useState(0)
+
+    const steps = [
+        "Basic information",
+        "Contact Information",
+        "Personal Information",
+        "Payment",
+    ];
+    const handleBack = () => {
+        setActiveStep(activeStep - 1)
+        console.log(activeStep);
+    }
+    const handleNext = (data) => {
+        setActiveStep(activeStep + 1)
+        console.log(activeStep);
+    }
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        console.log(data)
+    };
     function getStepContent(step) {
         switch (step) {
-            case 1:
+            case 0:
                 return (
                     <>
                         <div className=" mb-3 w-full">
                             <label className="text-sm">
-                                <span className="text-xs">Your Last Name</span>
+                                <span className="text-xs">Your First Name</span>
                             </label>
                             <input
-                                {...register('displayName', {
+                                {...register('firstName', {
                                     required: {
                                         value: true,
                                         message: 'First Name is required'
                                     }
                                 })}
+                                name='firstName'
                                 type="text" placeholder="Your First Name"
                                 className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
-
                             />
                             <label className="label">
-                                {errors.displayName?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
-                            </label>
-                        </div>
-                        <div className=" mb-3 w-full">
-                            <input
-                                {...register('lastName', {
-                                    required: {
-                                        value: true,
-                                        message: 'Last Name is required'
-                                    }
-                                })}
-                                type="text" placeholder="Your Last Name"
-                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
-
-                            />
-                            <label className="label">
-                                {errors.lastName?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
+                                {errors?.firstName?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.firstName?.message}</span>}
                             </label>
                         </div>
                     </>
 
                 );
 
-            case 2:
+            case 1:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -91,34 +96,14 @@ const ActiveStepForm = ({ activeStep }) => {
 
                             />
                             <label className="label">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-error">{errors.password.message}</span>}
-                                {errors.password?.type === 'pattern' && <span className="label-text-alt text-error">{errors.password.message}</span>}
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-                        <div className=" mb-3 w-full ">
-                            <input
-                                {...register('password', {
-                                    required: {
-                                        value: true,
-                                        message: 'password is required'
-                                    },
-                                    minLength: {
-                                        value: 6,
-                                        message: 'The password must be at least 6 characters long'
-                                    }
-                                })}
-                                type="password" placeholder="Enter Your Password"
-                                className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
-                            />
-                            <label className="label">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-error">{errors.password.message}</span>}
-                                {errors.password?.type === 'pattern' && <span className="label-text-alt text-error">{errors.password.message}</span>}
-                            </label>
-                        </div>
                     </>
                 );
-            case 3:
+            case 2:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -134,29 +119,29 @@ const ActiveStepForm = ({ activeStep }) => {
 
                             />
                             <label className="label">
-                                {errors.address?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
+                                {errors?.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
                             </label>
                         </div>
-                        <div className=" mb-3 w-full">
+                        <div className=" mb-3 w-full ">
                             <input
-                                {...register('country', {
+                                {...register('phoneNumber', {
                                     required: {
                                         value: true,
-                                        message: 'country is required'
+                                        message: 'phoneNumber is required'
                                     }
                                 })}
-                                type="text" placeholder="Your country"
+                                type="number" placeholder="Enter Your Phone Number"
                                 className="text-sm text-gray-600 focus:outline-none rounded-sm border border-gray-200 focus:border-teal-400 p-2 focus:text-gray-600 w-full"
 
                             />
                             <label className="label">
-                                {errors.country?.type === 'required' && <span className="label-text-alt text-error">{errors.name.message}</span>}
+                                {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
                             </label>
                         </div>
 
                     </>
                 );
-            case 4:
+            case 3:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -172,7 +157,7 @@ const ActiveStepForm = ({ activeStep }) => {
 
                             />
                             <label className="label">
-                                {errors.cardNumber?.type === 'required' && <span className="label-text-alt text-error">{errors.cardNumber.message}</span>}
+                                {errors.cardNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.cardNumber.message}</span>}
                             </label>
                         </div>
                         <div className=" mb-3 w-full">
@@ -188,7 +173,7 @@ const ActiveStepForm = ({ activeStep }) => {
 
                             />
                             <label className="label">
-                                {errors.cardMonth?.type === 'required' && <span className="label-text-alt text-error">{errors.cardMonth.message}</span>}
+                                {errors.cardMonth?.type === 'required' && <span className="label-text-alt text-red-500">{errors.cardMonth.message}</span>}
                             </label>
                         </div>
                         <div className=" mb-3 w-full">
@@ -204,7 +189,7 @@ const ActiveStepForm = ({ activeStep }) => {
 
                             />
                             <label className="label">
-                                {errors.cardYear?.type === 'required' && <span className="label-text-alt text-error">{errors.cardYear.message}</span>}
+                                {errors.cardYear?.type === 'required' && <span className="label-text-alt text-red-500">{errors.cardYear.message}</span>}
                             </label>
                         </div>
                     </>
@@ -213,14 +198,29 @@ const ActiveStepForm = ({ activeStep }) => {
                 return "unknown step";
         }
     }
-
-
     return (
+        <div className='container mx-auto'>
+            <div className='w-3/4 mx-auto border p-20'>
+                <MultiStepForm activeStep={activeStep}>
+                    {
+                        steps.map((step, index) => <Step key={index} label={step}>
+                        </Step>)
+                    }
+                </MultiStepForm>
 
-        <form className='py-6' onSubmit={handleSubmit(onSubmit)}>
-            {getStepContent(activeStep)}
-        </form>
+                <>
+                    {activeStep === steps.length ? <>
+                        <h2 className='text-green-300 text-center text-4xl font-bold'>Thank You For Payment</h2>
+                       <h2 className='text-center text-amber-500 text-xl flex justify-center items-center'><HiArrowLeft/><Link className='' to='/'> Home</Link></h2>
+                    </> : <form className='py-6 text-center' onSubmit={handleSubmit(onSubmit)}>
+                        {getStepContent(activeStep)}
+                        <button disabled={activeStep === 1} onClick={handleBack} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Back</button>
+                        <button disabled={activeStep === steps.length} onClick={handleNext} type='submit' className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>{activeStep === steps.length - 1 ? 'Confirm Payment' : 'Next'}</button>
+                    </form>}
+                </>
+            </div>
+        </div >
     );
 };
 
-export default ActiveStepForm;
+export default LineStepper;
