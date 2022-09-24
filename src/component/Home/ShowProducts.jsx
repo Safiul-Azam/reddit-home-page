@@ -42,8 +42,8 @@ const ShowProducts = ({ filterByBtn, productName, handleChange }) => {
                         </select>
                     </div>
                     <div className=' space-x-5 flex'>
-                        <button className={`hover:bg-teal-700 hover:text-white text-teal-700 text-sm p-1 flex items-center justify-center hover:duration-500 hover:ease-in-out ease-in-out duration-500 ${activeLow ? 'bg-teal-500 text-gray-100':'bg-teal-100'}`} onClick={handleLow}>Low To High</button>
-                        <button className={`hover:bg-teal-700 hover:text-white text-teal-700 text-sm p-1 flex items-center justify-center hover:duration-500 hover:ease-in-out ease-in-out duration-500 ${activeHigh ? 'bg-teal-500 text-gray-100':'bg-teal-100'}`} onClick={handleHigh}>High To Low</button>
+                        <button className={`hover:bg-teal-700 hover:text-white text-teal-700 text-sm p-1 flex items-center justify-center hover:duration-500 hover:ease-in-out ease-in-out duration-500 ${activeLow ? 'bg-teal-500 text-gray-100' : 'bg-teal-100'}`} onClick={handleLow}>Low To High</button>
+                        <button className={`hover:bg-teal-700 hover:text-white text-teal-700 text-sm p-1 flex items-center justify-center hover:duration-500 hover:ease-in-out ease-in-out duration-500 ${activeHigh ? 'bg-teal-500 text-gray-100' : 'bg-teal-100'}`} onClick={handleHigh}>High To Low</button>
                     </div>
                 </div>
             </div>}
@@ -58,10 +58,10 @@ const ShowProducts = ({ filterByBtn, productName, handleChange }) => {
                             <h3 className='text-xl text-center text-amber-600'>${product.price}</h3>
                         </div>
                         <div className='px-2 space-y-2 flex flex-col my-2'>
-                            <button className='hover:bg-teal-700 bg-teal-100 hover:text-white text-teal-500 text-sm p-1 flex items-center justify-center hover:duration-100 hover:ease-in-out ease-in-out duration-500'>
+                            <Link to={`/${product?.id}`} className='hover:bg-teal-700 bg-teal-100 hover:text-white text-teal-500 text-sm p-1 flex items-center justify-center hover:duration-500 hover:ease-in-out ease-in-out duration-500'>
                                 <AiOutlineShoppingCart className='text-xl mr-3' />
                                 Buy Now
-                            </button>
+                            </Link>
                             <button className='hover:bg-gray-200 bg-white text-sm p-1 flex items-center justify-center hover:duration-200 hover:ease-in-out ease-in-out duration-100'>
                                 <BiAddToQueue className='text-xl mr-3' />
                                 Add To Cart

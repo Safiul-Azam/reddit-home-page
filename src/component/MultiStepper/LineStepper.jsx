@@ -3,9 +3,11 @@ import { useForm } from 'react-hook-form';
 import { HiArrowLeft } from 'react-icons/hi';
 import { MultiStepForm, Step } from 'react-multi-form';
 import { Link } from 'react-router-dom';
+import SweetAlert2 from 'react-sweetalert2';
 
 const LineStepper = () => {
-    const [activeStep, setActiveStep] = useState(0)
+    const [activeStep, setActiveStep] = useState(1)
+    const [swalProps, setSwalProps] = useState({})
 
     const steps = [
         "Basic information",
@@ -13,23 +15,28 @@ const LineStepper = () => {
         "Personal Information",
         "Payment",
     ];
-    const handleBack = () => {
+    const handleBack = (e) => {
+        e.preventDefault()
         setActiveStep(activeStep - 1)
         console.log(activeStep);
-    }
-    const handleNext = (data) => {
-        setActiveStep(activeStep + 1)
-        console.log(activeStep);
+        
     }
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const handleNext = (data) => {
+        setActiveStep(activeStep + 1)
+        console.log(activeStep);
+        console.log(data);
+        activeStep === steps.length && setSwalProps({
+            show: true,
+            title: 'Thank You',
+            text: 'For Your Payment For This Product',
+        })
     };
     function getStepContent(step) {
         switch (step) {
-            case 0:
+            case 1:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -55,7 +62,7 @@ const LineStepper = () => {
 
                 );
 
-            case 1:
+            case 2:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -103,7 +110,7 @@ const LineStepper = () => {
 
                     </>
                 );
-            case 2:
+            case 3:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -141,7 +148,7 @@ const LineStepper = () => {
 
                     </>
                 );
-            case 3:
+            case 4:
                 return (
                     <>
                         <div className=" mb-3 w-full">
@@ -209,13 +216,13 @@ const LineStepper = () => {
                 </MultiStepForm>
 
                 <>
-                    {activeStep === steps.length ? <>
-                        <h2 className='text-green-300 text-center text-4xl font-bold'>Thank You For Payment</h2>
-                       <h2 className='text-center text-amber-500 text-xl flex justify-center items-center'><HiArrowLeft/><Link className='' to='/'> Home</Link></h2>
-                    </> : <form className='py-6 text-center' onSubmit={handleSubmit(onSubmit)}>
+                    {activeStep === steps.length + 1 ? <>
+                        <SweetAlert2 {...swalProps} />
+                       <p className='text-center text-amber-500 text-xl flex justify-center items-center'><HiArrowLeft/><Link className='' to='/'> Home</Link></p>
+                    </> : <form className='py-6 text-center'>
                         {getStepContent(activeStep)}
                         <button disabled={activeStep === 1} onClick={handleBack} className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>Back</button>
-                        <button disabled={activeStep === steps.length} onClick={handleNext} type='submit' className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>{activeStep === steps.length - 1 ? 'Confirm Payment' : 'Next'}</button>
+                        <button disabled={activeStep === steps.length + 2} onClick={handleSubmit(handleNext)} type='submit' className='text-lg border bg-green-500 text-white py-2 px-6 rounded-lg mr-3'>{activeStep === steps.length ? 'Confirm Payment' : 'Next'}</button>
                     </form>}
                 </>
             </div>
